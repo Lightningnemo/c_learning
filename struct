@@ -1,0 +1,34 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include <stdio.h>
+#include <string.h>
+//结构体 --自己创造的类型
+struct Book
+{
+	char name[20];
+	short price;
+};
+
+int main() {
+	//double d = 3.14;
+	//double* pd = &d;
+	//*pd = 5.5;
+	/*printf("%lf\n", d);
+	printf("%lf\n", *pd);*/
+	struct Book b1 = { "C语言程序设计",55 };
+	struct Book* pb = &b1;
+	printf("%s\n", (*pb).name);
+	printf("%d\n", (*pb).price);
+	
+	strcpy(b1.name, "C++");//字符串只能拷贝
+	printf("%s\n", pb->name);
+	printf("%d\n", pb->price);
+
+
+	//printf("书名：%s\n", b1.name);
+	//printf("价格：%d元\n", b1.price);
+
+	//b1.price = 15;
+	//printf("价格：%d元\n", b1.price);
+	 
+}
