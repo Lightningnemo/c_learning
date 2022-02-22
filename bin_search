@@ -1,0 +1,19 @@
+int bin_search(int* a, int low, int high, int k) {
+	//折半查找
+	while (low <= high) {
+		int mid = (low + high) / 2;
+		if (k == a[mid])
+		{
+			return mid + 1;
+			break;
+		}
+		else if (k < a[mid])
+			return bin_search(a, low, mid - 1, k);
+		else
+			return bin_search(a, mid + 1, high, k);
+	}
+	if (low > high) {
+		printf("Not found\n");
+		return 0;
+	}
+}
