@@ -1,0 +1,63 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <time.h>
+#define RAND_MAX 0x7fff
+
+void menu()
+{
+	printf("#########################\n");
+	printf("##### 1.play  0.quit#####\n");
+	printf("#########################\n");
+}
+
+
+
+//猜数字游戏
+void game()
+{
+	//生成随机数
+	//拿时间戳来设置随机数的生成起点
+	srand((unsigned int)time(NULL));
+	int ret = rand() % 100 + 1; //1--100
+	int guess = 0;
+	//printf("%d\n", ret);
+	while (1)
+	{
+		printf("请猜数字:>");
+		scanf("%d", &guess);
+		if (guess < ret)
+			printf("猜小了\n");
+		else if (guess > ret)
+			printf("猜大了\n");
+		else {
+			printf("恭喜恭喜，猜对了\n");
+			break;
+		}
+	}
+}
+
+int main() {
+	int input = 0;
+	do {
+		menu();
+		printf("请输入:>");
+		scanf("%d", &input);
+		switch (input)
+		{
+		case 1:
+			game();
+			break;
+		case 0:
+			printf("结束游戏\n");
+			break;
+		default:
+			printf("输入错误，请重新输入\n");
+			break;
+		}
+	} while (input);
+
+	return 0;
+}
