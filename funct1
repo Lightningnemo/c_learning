@@ -1,0 +1,15 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+int funct1() {
+
+	//辗转相除法
+	int m = 160;
+	int n = 24;
+	int r = 0;
+	while (r=m%n) {
+		m = n;
+		n = r;
+	}
+	printf("最大公约数:%d\n", n);
+	return 0;
+}
